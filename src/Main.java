@@ -58,29 +58,24 @@ public class Main {
         return employeeList;
     }
 
-    private static String verifyEmployeeSalary(double salary, ArrayList<Employee> employeeList) {
-        double bonification = 0;
-        double liquidSalary = 0;
-
-        for (Employee employee : employeeList) {
-            if (salary >= 0 && salary <= 1000.0) {
-                bonification = 0.2;
-                liquidSalary = salary + (salary * bonification);
-            }
-            if(salary > 1000 && salary < 2000){
-                bonification = 0.1;
-                liquidSalary = salary + (salary * bonification);
-            }
-            if(salary > 2000){
-                bonification = 0.1;
-                liquidSalary = salary - (salary * bonification);
-            }
-        }
-        return "";
-    }
-
-//    private static ArrayList<Employee> instatiateList(){
-//        ArrayList<Employee> employeeList = new ArrayList<>();
-//        return employeeList;
+//    private static String verifyEmployeeSalary(double salary, ArrayList<Employee> employeeList) {
+//        double bonification = 0;
+//        double liquidSalary = 0;
+//
+//        for (Employee employee : employeeList) {
+//            if (salary >= 0 && salary <= 1000.0) {
+//                bonification = 0.2;
+//                liquidSalary = salary + (salary * bonification);
+//            }
+//            if(salary > 1000 && salary < 2000){
+//                bonification = 0.1;
+//                liquidSalary = salary + (salary * bonification);
+//            }
+//            if(salary > 2000){
+//                bonification = 0.1;
+//                liquidSalary = salary - (salary * bonification);
+//            }
+//        }
+//        return "";
 //    }
 }
