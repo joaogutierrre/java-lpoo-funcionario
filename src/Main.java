@@ -15,38 +15,12 @@ public class Main {
             System.out.println("Agora, insira o salário do funcionário");
             int salaryEmployee = input.nextInt();
 
-//            System.out.println(nameEmployee + ", " + salaryEmployee);
+            System.out.println(nameEmployee + ", " + salaryEmployee);
 
             employeeList = insertEmployees(nameEmployee, salaryEmployee, qnt, employeeList);
         }
-
-        double bonification = 0;
-        double liquidSalary = 0;
-
-        for (Employee employee : employeeList) {
-            String name = employee.getName();
-            double salary = employee.getSalary();
-
-            System.out.println();
-
-            if (salary >= 0 && salary <= 1000.0) {
-                bonification = 0.2;
-                liquidSalary = salary + (salary * bonification);
-            }
-            if(salary > 1000 && salary < 2000){
-                bonification = 0.1;
-                liquidSalary = salary + (salary * bonification);
-            }
-            if(salary > 2000){
-                bonification = 0.1;
-                liquidSalary = salary - (salary * bonification);
-            }
-
-            System.out.println("Funcionário: " + name);
-            System.out.println("Salário: " + salary);
-            System.out.println("Bonus: " + (bonification * salary));
-            System.out.println("Salário líquido: " + liquidSalary);
-        }
+        String returnedValues = verifyEmployeeSalary(employeeList);
+        System.out.println(returnedValues);
     }
 
     private static ArrayList<Employee> insertEmployees(String name, double salary, int qnt, ArrayList<Employee> employeeList) {
@@ -58,24 +32,36 @@ public class Main {
         return employeeList;
     }
 
-//    private static String verifyEmployeeSalary(double salary, ArrayList<Employee> employeeList) {
-//        double bonification = 0;
-//        double liquidSalary = 0;
-//
-//        for (Employee employee : employeeList) {
-//            if (salary >= 0 && salary <= 1000.0) {
-//                bonification = 0.2;
-//                liquidSalary = salary + (salary * bonification);
-//            }
-//            if(salary > 1000 && salary < 2000){
-//                bonification = 0.1;
-//                liquidSalary = salary + (salary * bonification);
-//            }
-//            if(salary > 2000){
-//                bonification = 0.1;
-//                liquidSalary = salary - (salary * bonification);
-//            }
-//        }
-//        return "";
-//    }
+    private static String verifyEmployeeSalary(ArrayList<Employee> employeeList) {
+        double bonification = 0;
+        double liquidSalary = 0;
+        String stringStacker = "";
+        String returnValues = "";
+
+        for (Employee employee : employeeList) {
+            String name = employee.getName();
+            double salary = employee.getSalary();
+
+            if (salary >= 0 && salary <= 1000.0) {
+                bonification = 0.2;
+                liquidSalary = salary + (salary * bonification);
+                returnValues = "\n\nNome: " + name + "\nSalário: " + salary + "\nBonus: " + (bonification * salary) + "\nSalário líquido: " + liquidSalary;
+                stringStacker += returnValues;
+            }
+            if (salary > 1000 && salary < 2000) {
+                bonification = 0.1;
+                liquidSalary = salary + (salary * bonification);
+                returnValues = "\n\nNome: " + name + "\nSalário: " + salary + "\nBonus: " + (bonification * salary) + "\nSalário líquido: " + liquidSalary;
+                stringStacker += returnValues;
+            }
+            if (salary > 2000) {
+                bonification = 0.1;
+                liquidSalary = salary - (salary * bonification);
+                returnValues = "\n\nNome: " + name + "\nSalário: " + salary + "\nDesconto: " + (bonification * salary) + "\nSalário líquido: " + liquidSalary;
+                stringStacker += returnValues;
+            }
+            returnValues = stringStacker;
+        }
+        return returnValues;
+    }
 }
