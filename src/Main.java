@@ -9,18 +9,17 @@ public class Main {
         System.out.println("Quantos funcionários deseja bonificar?");
         int qnt = input.nextInt();
 
-        ArrayList<Employee> employees = insertData(qnt,input,employeeList);
-        String returnedValues = verifyEmployeeSalary(employees);
+        ArrayList<Employee> insertedEmployees = insertData(qnt,input,employeeList);
+        String returnedValues = verifyEmployeeSalary(insertedEmployees);
         System.out.println(returnedValues);
     }
 
     private static ArrayList<Employee> insertData(int qnt, Scanner scanner, ArrayList<Employee> employeeList){
-        Scanner input = scanner;
         for (int i = 1; i <= qnt; i++) {
             System.out.println("Insira o nome do funcionário");
-            String nameEmployee = input.next();
+            String nameEmployee = scanner.next();
             System.out.println("Agora, insira o salário do funcionário");
-            int salaryEmployee = input.nextInt();
+            int salaryEmployee = scanner.nextInt();
 
             System.out.println(nameEmployee + ", " + salaryEmployee);
 
