@@ -9,6 +9,13 @@ public class Main {
         System.out.println("Quantos funcionários deseja bonificar?");
         int qnt = input.nextInt();
 
+        ArrayList<Employee> employees = insertData(qnt,input,employeeList);
+        String returnedValues = verifyEmployeeSalary(employees);
+        System.out.println(returnedValues);
+    }
+
+    private static ArrayList<Employee> insertData(int qnt, Scanner scanner, ArrayList<Employee> employeeList){
+        Scanner input = scanner;
         for (int i = 1; i <= qnt; i++) {
             System.out.println("Insira o nome do funcionário");
             String nameEmployee = input.next();
@@ -19,8 +26,7 @@ public class Main {
 
             employeeList = insertEmployees(nameEmployee, salaryEmployee, qnt, employeeList);
         }
-        String returnedValues = verifyEmployeeSalary(employeeList);
-        System.out.println(returnedValues);
+        return employeeList;
     }
 
     private static ArrayList<Employee> insertEmployees(String name, double salary, int qnt, ArrayList<Employee> employeeList) {
